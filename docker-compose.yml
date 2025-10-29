@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-ulinda}
       POSTGRES_USER: ${POSTGRES_USER:-ulinda_user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme123}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ulinda_password}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -18,9 +18,9 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-ulinda}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-ulinda_user}
-      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-changeme123}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-ulinda_password}
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
-      ULINDA_ADMIN_SECRET: ${ULINDA_ADMIN_SECRET:-admin}
+      ULINDA_ADMIN_PASSWORD: ${ULINDA_ADMIN_PASSWORD:-admin}
       CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:3000}
     ports:
       - "127.0.0.1:${BACKEND_PORT:-8081}:8081"  # Localhost only!
